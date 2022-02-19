@@ -5,14 +5,14 @@ import customexceptions.StackException;
 public class Stack<T> {
 	
 	private SinglyNode<T> top;
-	private long size;
+	private int size;
 	
 	public Stack() {
 		top = null;
 		size = 0;
 	}
 	
-	public void push(T data) {
+	public T push(T data) {
 		if(top == null)
 			top = new SinglyNode<>(data);
 		else {
@@ -21,6 +21,7 @@ public class Stack<T> {
 			top = newNode;
 		}
 		size++;
+		return data;
 	}
 	
 	public T pop() throws StackException {
@@ -38,7 +39,7 @@ public class Stack<T> {
 		return top.getData();
 	}
 
-	public long size() {
+	public int size() {
 		return size;
 	}
 	
